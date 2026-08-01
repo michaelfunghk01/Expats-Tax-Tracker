@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tax Prototype</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="container">
-      <h1>Tax Prototype</h1>
-      <p>Enter a few values to see a simple estimate.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expat Tax Tracker Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <header>
+            <h1>🌐 Expat Tax Shield</h1>
+            <p>Database-Less Local Simulation</p>
+        </header>
 
-      <form id="tax-form">
-        <label for="income test">Annual incomes</label>
-        <input id="income" name="income" type="number" min="0" step="100" required />
+        <!-- Profile Toggle Box -->
+        <section class="card profile-card">
+            <h3>Select Strategy Profile</h3>
+            <div class="toggle-group">
+                <button id="btn-ppt" class="active" onclick="switchProfile('PPT')">Physical Presence</button>
+                <button id="btn-bfr" onclick="switchProfile('BFR')">Bona Fide Resident</button>
+            </div>
+        </section>
 
-        <label for="deductions">Deductions</label>
-        <input id="deductions" name="deductions" type="number" min="0" step="100" value="0" />
+        <!-- Live Dashboard Output Screen -->
+        <section class="card dashboard-card">
+            <h3>Calculated Status</h3>
+            <div id="status-badge" class="badge badge-safe">🟢 SAFE</div>
+            <div id="dashboard-metrics">
+                <!-- Math strings inject here dynamically -->
+            </div>
+        </section>
 
-        <label for="status">Filing status</label>
-        <select id="status" name="status">
-          <option value="single">Single</option>
-          <option value="married">Married</option>
-        </select>
+        <!-- Log Entry Interaction Form -->
+        <section class="card form-card">
+            <h3>+ Log New Trip</h3>
+            <form id="trip-form" onsubmit="handleFormSubmit(event)">
+                <label>Arrival Location:</label>
+                <select id="trip-location">
+                    <option value="MEX">Foreign Territory (Mexico)</option>
+                    <option value="US">United States Soil</option>
+                </select>
 
-        <button type="submit">Calculate</button>
-      </form>
+                <div class="row">
+                    <div>
+                        <label>Start Date:</label>
+                        <input type="date" id="trip-start" required>
+                    </div>
+                    <div>
+                        <label>End Date:</label>
+                        <input type="date" id="trip-end" required>
+                    </div>
+                </div>
 
-      <section id="result" class="result" aria-live="polite"></section>
-    </main>
+                <button type="submit" class="btn-submit">Save Trip to Phone Memory</button>
+            </form>
+        </section>
 
-    <script src="app.js"></script>
-  </body>
+        <!-- Visual Table Log List -->
+        <section class="card history-card">
+            <h3>Stored Travel History Logs</h3>
+            <ul id="log-list">
+                <!-- Log item strings append here -->
+            </ul>
+            <button class="btn-clear" onclick="wipeLocalCache()">Wipe Device Memory Clear</button>
+        </section>
+    </div>
+
+    <script src="engine.js"></script>
+</body>
 </html>
