@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Tax Prototype</h1>
+      <p>Enter a few values to see a simple estimate.</p>
+
+      <form id="tax-form">
+        <label for="income">Annual income</label>
+        <input id="income" name="income" type="number" min="0" step="100" required />
+
+        <label for="deductions">Deductions</label>
+        <input id="deductions" name="deductions" type="number" min="0" step="100" value="0" />
+
+        <label for="status">Filing status</label>
+        <select id="status" name="status">
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+      </form>
+
+      <section id="result" class="result" aria-live="polite"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
