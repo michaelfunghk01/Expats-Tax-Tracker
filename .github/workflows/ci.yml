@@ -15,10 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Verify repository files
-        run: |
-          echo "Repository contents:"
-          ls -la
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
 
       - name: Confirm OpenRouter secret is available
         run: |
@@ -27,3 +27,15 @@ jobs:
             exit 1
           fi
           echo "OPENROUTER_API_KEY is available in the workflow environment."
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check engine.js
+
+      - name: Validate HTML file exists
+        run: |
+          if [ ! -f index.html ]; then
+            echo "ERROR: index.html not found."
+            exit 1
+          fi
+          echo "index.html is present."
