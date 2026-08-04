@@ -93,6 +93,15 @@ The BFR is a flexible residency test based on where your life is settled.
   - Mexico: `2026-08-31` to `2026-12-31`
 - This should show BFR qualification and illustrate how extended US travel reduces your prorated FEIE cap.
 
+## How to test the examples
+
+1. Open `index.html` in your browser.
+2. Switch the app to the correct mode: `Physical Presence` for PPT or `Bona Fide Resident` for BFR.
+3. Enter the sample travel dates listed above using the form.
+4. Click `Save Trip to Phone Memory` for each trip segment.
+5. Check the calculated totals and status message for the expected result.
+6. Use `Clear Sample Data` and repeat for the other example.
+
 ## Notes
 
 - This app is a prototype only.
