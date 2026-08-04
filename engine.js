@@ -39,13 +39,25 @@ function handleFormSubmit(event) {
     }
 
     const logs = getStoredLogs();
-   
     const newTrip = {
         id: crypto.randomUUID(),
         location: document.getElementById('trip-location').value,
         start: startValue,
         end: endValue
     };
+
+    const hasOverlap = logs.some(trip => {
+        const existingStart = new Date(trip.start);
+        const existingEnd = new Date(trip.end);
+        const newStart = new Date(newTrip.start);
+        const newEnd = new Date(newTrip.end);
+        return newStart <= existingEnd && newEnd >= existingStart;
+    });
+
+    if (hasOverlap) {
+        alert('This trip overlaps an existing travel record. Please choose dates that do not overlap previous trips.');
+        return;
+    }
 
     logs.push(newTrip);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
