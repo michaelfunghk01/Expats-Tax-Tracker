@@ -54,6 +54,8 @@ The BFR is a flexible residency test based on where your life is settled.
 ## Double taxation and the Mexican RESICO trap
 
 - The US allows a **Foreign Tax Credit (FTC)** to avoid double taxation.
+- The FTC is limited to the amount of US tax attributable to the same foreign income. If your foreign tax is low, it may only cover part of the US tax bill.
+- In practice, “credits at 50%” means the foreign tax credit may only offset roughly half of the US tax on that income, leaving the rest taxable in the US.
 - In Mexico, the RESICO regime may produce very low local tax (1–2.5% of gross income).
 - If your Mexican tax is too low, your FTC may not fully offset your US tax on spillover income.
 
