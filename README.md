@@ -1,21 +1,89 @@
 # Songyah Expats: FEIE Tax Shield
 
-A prototype expat travel tracker for FEIE planning and U.S. presence tracking.
+A prototype expat travel tracker for FEIE planning and U.S. presence monitoring.
 
-## What’s included
+## What this app does
 
-- `index.html` — the app UI and form inputs
-- `styles.css` — styling for the page layout and form
-- `engine.js` — travel log and FEIE status calculation logic
+This app helps you test two IRS qualification pathways for the Foreign Earned Income Exclusion (FEIE):
+- **Physical Presence Test (PPT)**
+- **Bona Fide Residence Test (BFR)**
 
-## How to run
+It lets you log travel dates and see how US days and foreign days affect your status.
+
+## How the FEIE works
+
+### 1. Physical Presence Test (PPT)
+The PPT is a strict, math-based test based on where your body is located each day.
+
+- **330-day rule**: You must spend at least 330 full 24-hour days on foreign soil within any rolling 12-month period.
+- **35-day US limit**: You may spend up to 35 days in the US in a 365-day year. Day 36 in the US means the test fails.
+- **Travel days**: The day you leave the US and the day you return do not count as foreign days. They count as US days because you spent some of those 24 hours in the US.
+- **Rolling year**: The 12-month period can be any rolling 365-day window, not a calendar year.
+- **Window overlap**: You may use overlapping 365-day windows, but this can lock up future US travel room.
+
+### 2. Bona Fide Residence Test (BFR)
+The BFR is a flexible residency test based on where your life is settled.
+
+- **Full-year rule**: You must be a foreign resident for an uninterrupted period that includes a full calendar year (January 1–December 31).
+- **Flexible US travel**: There is no automatic 35-day limit. You can spend longer periods in the US as long as you clearly intend to return abroad.
+- **Proof of residency**: The IRS evaluates evidence like housing leases, local bank accounts, local licenses, family relocation, and foreign tax registration.
+
+## Income sourcing rules
+
+- **Foreign-source earned income**: If you are physically working from Mexico, your income is foreign sourced even if your clients or employer are in the US.
+- **US-source earned income**: If you work while physically in the US, that income is US sourced and cannot be excluded.
+
+## FEIE caps and proration
+
+- The FEIE caps your tax-free earnings each year. For example, the 2026 cap is **$126,000**.
+- Under the BFR, US travel reduces your exclusion cap by the fraction of the year spent in the US.
+
+### Example proration math
+
+- **Income**: $150,000 annual
+- **Days in Mexico**: 305
+- **Days in US**: 60
+- **Prorated FEIE cap**: 305 / 365 × $126,000 = **$105,287.67**
+- **US-source income**: 60 / 365 × $150,000 = **$24,657.60**
+- **Foreign income remaining**: $150,000 - $24,657.60 = **$125,342.40**
+- **Spillover taxable foreign income**: $125,342.40 - $105,287.67 = **$20,054.73**
+- **Total taxable income**: $24,657.60 + $20,054.73 = **$44,712.33**
+
+> Remember: the IRS taxes the spillover amount using the stacking rule, not the lowest bracket.
+
+## Double taxation and the Mexican RESICO trap
+
+- The US allows a **Foreign Tax Credit (FTC)** to avoid double taxation.
+- In Mexico, the RESICO regime may produce very low local tax (1–2.5% of gross income).
+- If your Mexican tax is too low, your FTC may not fully offset your US tax on spillover income.
+
+## Important limits
+
+- FEIE only applies to **earned income**: wages, salary, professional fees.
+- It does not protect **passive income** like dividends, capital gains, interest, rental income, or crypto gains.
+
+## How to use this app
 
 1. Open `index.html` in your browser.
-2. Use the `Get Started with Sample Data` button to test the app quickly.
-3. Add real trip dates using the form when ready.
-4. Choose `Physical Presence` or `Bona Fide Resident` to update the status.
+2. Use `Get Started with Sample Data` to preload example trips.
+3. Check the calculated status and US travel totals.
+4. Add or remove real trips to see the effect on PPT/BFR status.
+
+## Example scenarios to test
+
+### Example 1: Physical Presence Test (PPT)
+- **Status**: PPT mode
+- **Foreign trips**: 330+ foreign days in a 365-day window
+- **US travel**: 35 days or fewer
+- This scenario should show a successful PPT qualification if the foreign days are continuous and the US days remain under the limit.
+
+### Example 2: Bona Fide Residence Test (BFR)
+- **Status**: BFR mode
+- **Residency**: full calendar year abroad
+- **US travel**: extended US stays allowed as long as the foreign residency intent remains strong
+- This scenario should show BFR qualification and may demonstrate a prorated FEIE cap if some US travel occurs.
 
 ## Notes
 
-- This is a prototype and uses simplified tracking logic.
-- It is not intended as tax advice.
+- This app is a prototype only.
+- It provides simplified tracking logic and does not replace professional tax advice.
