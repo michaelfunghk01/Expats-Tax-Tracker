@@ -73,15 +73,23 @@ The BFR is a flexible residency test based on where your life is settled.
 
 ## Example scenarios to test
 
-### Example 1: Physical Presence Test (PPT)
+### Example 1a: Physical Presence Test (PPT) Failure
 - **Status**: PPT mode
-- **US travel**: 30 days total inside a 365-day window
-- **Foreign travel**: 340 foreign days in the same 365-day window
+- **US travel**: 48 days total inside a 365-day window
 - **Sample travel dates**:
-  - Mexico: `2026-01-05` to `2026-03-20`
-  - US: `2026-03-21` to `2026-04-05` (16 days)
-  - Mexico: `2026-04-06` to `2026-12-31`
-- This should show a successful PPT qualification because foreign days exceed 330 and US days stay under 35.
+  - Mexico: `2026-01-03` to `2026-01-20`
+  - US: `2026-02-05` to `2026-02-25` (21 days)
+  - US: `2026-03-10` to `2026-04-05` (27 days)
+- This should show a PPT failure because total US travel exceeds the 35-day limit.
+
+### Example 1b: Physical Presence Test (PPT) Safe
+- **Status**: PPT mode
+- **US travel**: 16 days total inside a 365-day window
+- **Sample travel dates**:
+  - Mexico: `2026-01-03` to `2026-01-20`
+  - US: `2026-02-05` to `2026-02-20` (16 days)
+  - Mexico: `2026-02-21` to `2026-12-31`
+- This should show a safe PPT result because total US days stay below 35.
 
 ### Example 2: Bona Fide Residence Test (BFR)
 - **Status**: BFR mode

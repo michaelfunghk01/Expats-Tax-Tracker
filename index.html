@@ -123,12 +123,14 @@
             <p>Pick one of the example profiles below, load the sample trips, and then return to the app to review the calculated status.</p>
             <div class="example-block">
                 <h4>Physical Presence Test (PPT)</h4>
+                <p>Choose one of these PPT scenarios:</p>
                 <ul>
                     <li>Switch to <strong>Physical Presence</strong></li>
-                    <li>Load the PPT sample trips</li>
-                    <li>Confirm the app shows a SAFETY BUFFER or WARNING zone based on US days</li>
+                    <li>Load a PPT sample set</li>
+                    <li>Review whether the app reports a safe buffer or a PPT failure</li>
                 </ul>
-                <button class="btn-submit" onclick="loadPptSample()">Load PPT Sample</button>
+                <button class="btn-submit" onclick="loadPptFailSample()">Load PPT Failure Sample</button>
+                <button class="btn-submit" onclick="loadPptSafeSample()">Load PPT Safe Sample</button>
             </div>
             <div class="example-block">
                 <h4>Bona Fide Resident Test (BFR)</h4>

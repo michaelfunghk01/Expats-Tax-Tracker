@@ -93,10 +93,16 @@ function hideSampleScreen() {
     document.getElementById('main-app-content').classList.remove('hidden');
 }
 
-const sampleTripsPPT = [
+const sampleTripsPPTFail = [
     { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-03', end: '2026-01-20' },
-    { id: crypto.randomUUID(), location: 'US', start: '2026-02-05', end: '2026-02-15' },
-    { id: crypto.randomUUID(), location: 'US', start: '2026-03-10', end: '2026-03-18' }
+    { id: crypto.randomUUID(), location: 'US', start: '2026-02-05', end: '2026-02-25' },
+    { id: crypto.randomUUID(), location: 'US', start: '2026-03-10', end: '2026-04-05' }
+];
+
+const sampleTripsPPTSafe = [
+    { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-03', end: '2026-01-20' },
+    { id: crypto.randomUUID(), location: 'US', start: '2026-02-05', end: '2026-02-20' },
+    { id: crypto.randomUUID(), location: 'MEX', start: '2026-02-21', end: '2026-12-31' }
 ];
 
 const sampleTripsBFR = [
@@ -105,9 +111,16 @@ const sampleTripsBFR = [
     { id: crypto.randomUUID(), location: 'MEX', start: '2026-04-05', end: '2026-04-30' }
 ];
 
-function loadPptSample() {
+function loadPptFailSample() {
     switchProfile('PPT');
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTripsPPT));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTripsPPTFail));
+    hideSampleScreen();
+    renderApplication();
+}
+
+function loadPptSafeSample() {
+    switchProfile('PPT');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTripsPPTSafe));
     hideSampleScreen();
     renderApplication();
 }

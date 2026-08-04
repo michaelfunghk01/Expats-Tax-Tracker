@@ -81,6 +81,8 @@ label { display: block; font-size: 12px; font-weight: bold; margin: 10px 0 4px 0
 .example-block h4 { font-size: 14px; margin: 10px 0 6px; }
 .example-block ul { margin: 0 0 10px 18px; padding-left: 0; color: #333; }
 .example-block ul li { margin-bottom: 8px; font-size: 13px; }
+.sample-screen > .btn-secondary { margin-top: 18px; }
+
 
 select, input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
 .row { display: flex; gap: 10px; }
