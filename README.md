@@ -73,15 +73,25 @@ The BFR is a flexible residency test based on where your life is settled.
 
 ### Example 1: Physical Presence Test (PPT)
 - **Status**: PPT mode
-- **Foreign trips**: 330+ foreign days in a 365-day window
-- **US travel**: 35 days or fewer
-- This scenario should show a successful PPT qualification if the foreign days are continuous and the US days remain under the limit.
+- **US travel**: 30 days total inside a 365-day window
+- **Foreign travel**: 340 foreign days in the same 365-day window
+- **Sample travel dates**:
+  - Mexico: `2026-01-05` to `2026-03-20`
+  - US: `2026-03-21` to `2026-04-05` (16 days)
+  - Mexico: `2026-04-06` to `2026-12-31`
+- This should show a successful PPT qualification because foreign days exceed 330 and US days stay under 35.
 
 ### Example 2: Bona Fide Residence Test (BFR)
 - **Status**: BFR mode
-- **Residency**: full calendar year abroad
-- **US travel**: extended US stays allowed as long as the foreign residency intent remains strong
-- This scenario should show BFR qualification and may demonstrate a prorated FEIE cap if some US travel occurs.
+- **Residency**: full calendar year abroad with legitimate US visits
+- **US travel**: 60 days total
+- **Sample travel dates**:
+  - Mexico: `2026-01-01` to `2026-03-31`
+  - US: `2026-04-01` to `2026-04-30` (30 days)
+  - Mexico: `2026-05-01` to `2026-07-31`
+  - US: `2026-08-01` to `2026-08-30` (30 days)
+  - Mexico: `2026-08-31` to `2026-12-31`
+- This should show BFR qualification and illustrate how extended US travel reduces your prorated FEIE cap.
 
 ## Notes
 
