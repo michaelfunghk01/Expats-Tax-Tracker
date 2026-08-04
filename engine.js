@@ -15,15 +15,36 @@ function getStoredLogs() {
     return data ? JSON.parse(data) : [];
 }
 
+function updateEndMinDate() {
+    const startInput = document.getElementById('trip-start');
+    const endInput = document.getElementById('trip-end');
+    if (startInput.value) {
+        endInput.min = startInput.value;
+        if (endInput.value && endInput.value < startInput.value) {
+            endInput.value = startInput.value;
+        }
+    } else {
+        endInput.removeAttribute('min');
+    }
+}
+
 function handleFormSubmit(event) {
     event.preventDefault();
+    const startValue = document.getElementById('trip-start').value;
+    const endValue = document.getElementById('trip-end').value;
+
+    if (startValue > endValue) {
+        alert('End date must be the same as or later than the start date.');
+        return;
+    }
+
     const logs = getStoredLogs();
    
     const newTrip = {
         id: crypto.randomUUID(),
         location: document.getElementById('trip-location').value,
-        start: document.getElementById('trip-start').value,
-        end: document.getElementById('trip-end').value
+        start: startValue,
+        end: endValue
     };
 
     logs.push(newTrip);
