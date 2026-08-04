@@ -62,7 +62,23 @@ function switchProfile(profile) {
 }
 
 function wipeLocalCache() {
+    const shouldClear = confirm('Clear stored trip data? This will remove any sample or real entries.');
+    if (!shouldClear) {
+        return;
+    }
+
     localStorage.removeItem(STORAGE_KEY);
+    renderApplication();
+}
+
+function loadSampleTrips() {
+    const sampleTrips = [
+        { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-05', end: '2026-01-20' },
+        { id: crypto.randomUUID(), location: 'US', start: '2026-02-10', end: '2026-02-18' },
+        { id: crypto.randomUUID(), location: 'MEX', start: '2026-03-01', end: '2026-03-15' }
+    ];
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTrips));
     renderApplication();
 }
 
