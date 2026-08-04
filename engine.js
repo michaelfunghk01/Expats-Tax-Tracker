@@ -71,6 +71,42 @@ function wipeLocalCache() {
     renderApplication();
 }
 
+function showSampleScreen() {
+    document.getElementById('sample-screen').classList.remove('hidden');
+    document.getElementById('main-app-content').classList.add('hidden');
+}
+
+function hideSampleScreen() {
+    document.getElementById('sample-screen').classList.add('hidden');
+    document.getElementById('main-app-content').classList.remove('hidden');
+}
+
+const sampleTripsPPT = [
+    { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-03', end: '2026-01-20' },
+    { id: crypto.randomUUID(), location: 'US', start: '2026-02-05', end: '2026-02-15' },
+    { id: crypto.randomUUID(), location: 'US', start: '2026-03-10', end: '2026-03-18' }
+];
+
+const sampleTripsBFR = [
+    { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-03', end: '2026-02-28' },
+    { id: crypto.randomUUID(), location: 'US', start: '2026-03-10', end: '2026-03-25' },
+    { id: crypto.randomUUID(), location: 'MEX', start: '2026-04-05', end: '2026-04-30' }
+];
+
+function loadPptSample() {
+    switchProfile('PPT');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTripsPPT));
+    hideSampleScreen();
+    renderApplication();
+}
+
+function loadBfrSample() {
+    switchProfile('BFR');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleTripsBFR));
+    hideSampleScreen();
+    renderApplication();
+}
+
 function loadSampleTrips() {
     const sampleTrips = [
         { id: crypto.randomUUID(), location: 'MEX', start: '2026-01-05', end: '2026-01-20' },

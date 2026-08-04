@@ -112,12 +112,37 @@
             <h1>🌐 Songyah Expats: FEIE Tax Shield</h1>
             <p>Database-Less Local Simulation</p>
             <div class="header-actions">
-                <button class="btn-start" onclick="loadSampleTrips()">Get Started with Sample Data</button>
+                <button class="btn-start" onclick="showSampleScreen()">Get Started with Sample Data</button>
                 <button class="btn-secondary" onclick="wipeLocalCache()">Clear Sample Data</button>
             </div>
             <p class="help-text">Use sample data to test the app, then clear it to return to real data entry.</p>
         </header>
 
+        <section class="card sample-screen hidden" id="sample-screen">
+            <h3>Sample Data Test Scenarios</h3>
+            <p>Pick one of the example profiles below, load the sample trips, and then return to the app to review the calculated status.</p>
+            <div class="example-block">
+                <h4>Physical Presence Test (PPT)</h4>
+                <ul>
+                    <li>Switch to <strong>Physical Presence</strong></li>
+                    <li>Load the PPT sample trips</li>
+                    <li>Confirm the app shows a SAFETY BUFFER or WARNING zone based on US days</li>
+                </ul>
+                <button class="btn-submit" onclick="loadPptSample()">Load PPT Sample</button>
+            </div>
+            <div class="example-block">
+                <h4>Bona Fide Resident Test (BFR)</h4>
+                <ul>
+                    <li>Switch to <strong>Bona Fide Resident</strong></li>
+                    <li>Load the BFR sample trips</li>
+                    <li>Confirm the app shows a prorated FEIE savings cap</li>
+                </ul>
+                <button class="btn-submit" onclick="loadBfrSample()">Load BFR Sample</button>
+            </div>
+            <button class="btn-secondary" onclick="hideSampleScreen()">Back to Application</button>
+        </section>
+
+        <div id="main-app-content">
         <!-- Profile Toggle Box -->
         <section class="card profile-card">
             <h3>Select Strategy Profile</h3>
