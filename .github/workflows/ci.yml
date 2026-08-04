@@ -32,6 +32,21 @@ jobs:
         run: |
           node --check engine.js
 
+      - name: Validate HTML syntax
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+
+          class Validator(HTMLParser):
+              def error(self, message):
+                  raise Exception(message)
+
+          parser = Validator()
+          with open('index.html', 'r', encoding='utf-8') as f:
+              parser.feed(f.read())
+          print('index.html parsed successfully')
+          PY
+
       - name: Validate HTML file exists
         run: |
           if [ ! -f index.html ]; then
